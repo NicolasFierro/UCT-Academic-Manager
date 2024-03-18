@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {# Página de Inicio #}
+    {{ titulo }}
+{% endblock %}
+
+{% block content %}
+    <h1>Inicio</h1>
+    <p>{{'Servicio Nacional de Aprendizaje' |cut:''}}</p>
+    <h1 class="title">{{ title }}</h1>
+    {{ mi_variable }}
+
+
+    {% if name == 'Sebastian Tovar' %}
+        <p>{{ name }}</p>
+    {% else %}
+        <strong>Nombre no existe</strong>
+    {% endif %}
+    <h3>Lista de colores:</h3>
+    <ul>
+        {% for color in colores %}
+            <li>{{ color }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Números impares del 1 al 10:</h3>
+    <ul>
+        {% for number in impares %}
+            <li>{{ number }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Nombres de lenguajes:</h3>
+    {% for lenguaje in lenguajes %}
+        <li>{{ lenguaje }} {{forloop.first}}</li>
+        {% comment %} <li>{{ lenguaje }} {{forloop.last}} ultimo elemento de la lista</li>
+        <li>{{ lenguaje }} {{forloop.counter}} contador desde el 1</li>
+        <li>{{ lenguaje }} {{forloop.counter0}} contador desde el 0</li>
+        <li>{{ lenguaje }} {{forloop.revcounter}} contador en forma descendente </li> {% endcomment %}
+        {% comment %} <li>{{ lenguaje }} {{forloop.revcounter0}} contador desde el 0</li> {% endcomment %}
+        {%empty%}
+    <p>No hay lenguajes para mostrar</p>
+    {% endfor %}
+    <h2>nombres: </h2>
+{% for nombre in nombres_while %}
+    <li>{{ nombre }}{{forloop.counter0}}</li>
+    {%empty%}
+        <p>No hay datos para mostrar</p>
+{% endfor %}
+
+
+    {% comment %} <p>Años desde el 2024 hasta el 2050:</p> {% endcomment %}
+    {%include 'fechaActual.html' with saludo='Hola desde la Plantilla' %}
+    {%endblock%}

@@ -1,0 +1,38 @@
+{%extends 'layout.html' %}
+{%load static%}
+{% block title %}
+Lista de Articulos
+{% endblock %}
+
+{% block content %}
+<h2 class="tittle">Lista de Articulos</h2> 
+{{block.super}}
+<div class = "lista">
+<ul>
+    {%for article in articulos%}
+    <li>
+        <strong>Codigo: </strong> {{article.id}} 
+        <br>
+        <strong>Titulo: </strong>{{article.title}}
+        <br>
+        <strong>Contenido: </strong>{{article.content}}
+        <br>
+        <strong>Estado: </strong>{{article.public}}
+        {%if article.public%}
+            <strong class="publicado">Publicado</strong>
+        {%else%}
+            <strong class="Privado">Privado</strong>   
+        {%endif%}
+        <br>
+        <strong>Fecha: </strong>{{article.create_date}}
+        {% comment %} <span>{{article.create_date}}</span> {% endcomment %}
+        
+        <a href="{% url 'Borrar' article.id %}">Borrar</a>
+    </li>
+    
+    <hr>
+    {% endfor %}
+
+</ul>
+</div>
+{% endblock %}

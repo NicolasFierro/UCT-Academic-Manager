@@ -1,0 +1,62 @@
+{%extends 'layout.html' %}
+{%load static%}
+{% block title %}
+Lista de Articulos
+{% endblock %}
+
+{% block content %}
+<h2 class="tittle">Lista de Articulos</h2> 
+{{block.super}}
+    {% if messages  %}
+        {% for message in messages %}
+            <div class="message">
+                {{m}}
+            </div>
+                <script>
+                    swal({
+                        title: "{{titulo}}",
+                        text: "{{m}}",
+                        icon: "{{icono}}",
+                        button: "{{boton}}",
+
+                    });
+                </script>
+        {%endfor%}
+    {% endif %}
+<div class = "lista">
+
+    {%for article in articulos%}
+    <article class ="article-item">
+        {%if article.image != 'null' and article.image.url|length >= 1 %}
+            <img class="image" src="{{article.image.url}}"></img>
+        {%endif%}
+        <div class = "data">
+        <strong>Codigo: </strong> {{article.id}} 
+        <br>
+        <strong>Titulo: </strong>{{article.title}}
+        <br>
+        <strong>Contenido: </strong>{{article.content}}
+        <br>
+        <strong>Estado: </strong>
+        {% comment %} {%if article.public%}
+            <strong class="publicado">Publicado</strong>
+        {%else%}
+            <strong class="Privado">Privado</strong>   
+        {%endif%} {% endcomment %}
+        <br>
+        <strong>Fecha: </strong>{{article.create_date}}
+        
+        
+        <a href="{% url 'Borrar' article.id %}">Borrar</a>
+    </div>
+    <div class= "clerfix">
+
+    </div>
+    </article>
+    
+    
+    {% endfor %}
+
+
+</div>
+{% endblock %}

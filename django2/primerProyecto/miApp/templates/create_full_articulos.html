@@ -1,0 +1,26 @@
+{%extends 'layout.html' %}
+{%load static%}
+
+{% block title %}
+    Crear Articulos
+{% endblock %}
+
+    {% block content %}
+
+    <h2 class="tittle">Formulario de Articulos</h2> 
+    {% if form.errors %}
+        <strong class="rojo">
+            Hay errores en el Formulario
+    </strong>
+    {% endif %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Guardar"/>
+        
+    </form>
+
+
+    {% endblock %}
+
