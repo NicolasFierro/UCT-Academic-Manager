@@ -1,0 +1,12 @@
+<hr/> 
+<h2>Bievenido: {{name}}</h2>
+<h1> Estamos en el 2024</h1>
+<p> Años pares desde el 2024 hasta el 2050</p>
+<ul>
+    {%for year in years%}
+        {%if year|divisibleby:2 != 0 %}
+            <li>{{year}}</li>
+        {%endif%}
+    {%endfor%}
+</ul>
+<p>{{saludo}}</p>

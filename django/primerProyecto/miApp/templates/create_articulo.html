@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+    Crear Articulos
+{% endblock %}
+
+{% block content %}
+    <h2 class="tittle">Creacion de Articulos</h2> 
+    <br>
+    <hr/>
+    <form action="{%url 'create'%}"method="POST">
+    <form action="{%url 'save'%}"method="POST">
+        <label for="title">Titulo del Articulo</label><br>
+        <input type="text" name="title" placeholder="Ingrese el Titulo"/><br>
+        <label for="content">Contenido del Articulo</label><br>
+        <textarea name="content"></textarea><br>
+        <label for="piblic">¿Publicado?</label><br>
+        <select name="public">
+            <option value="1">Si</option>
+            <option value="0">No</option>
+        </select> <br>
+        <button type="submit">Agregar Articulo</button>
+    </form>
+{% endblock %}
+
+{%block content%}
+
+<h1 class="title"> Formulario en Django</h1>
+<form action="{%url 'save'%}"method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="summit" value="Guardar"/>
+</form>
+
+{% endblock %}

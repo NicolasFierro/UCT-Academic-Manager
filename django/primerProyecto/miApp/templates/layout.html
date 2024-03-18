@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'icons/logo.png' %}"/>
+    <title>
+        {% block title %}
+            Inicio
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <header>
+        <div class="logotipo">
+            <img src="{% static 'img/logo.png' %}" alt="">
+            <h1>Sitio Web con Django | Nicolas Fierro</h1>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="/Inicio">Inicio</a>
+            </li>
+            <li>
+                <a href="/quienesSomos">Quienes Somos</a>
+            </li>
+            <li>
+                <a href="/productAndServices">Productos y Servicios</a>
+            </li>
+            <li>
+                <a href="/contacto">Contacto</a>
+            </li>
+            <il>
+                <a href="/pagina">Pagina</a>
+            </li>
+            <li>
+                <a href="/articulos">Articulos</a>
+            </li>
+            <li>
+                <a href="{% url 'create'%}">Crear Articulo</a>
+            </li>
+        {% comment %} <!-- <<li> -->
+            <!-- <a href="/holaMundo">Hola Mundo</a>
+        </li>
+
+        <li>
+            <a href="/saludo">Saludo</a> -->
+        <!-- </li> -->
+
+        <!-- <li>
+            <a href="/Inicio">Inicio</a>
+        </li> -->
+
+        <!-- <li>
+            <a href="/presentacion">Presentacion</a>
+        </li> -->
+
+        <!-- <li>
+            <a href="/contacto">Contacto</a>
+        </li> -->  {% endcomment %}
+        
+    </ul>
+</nav>
+<div class="barra">
+    <span class="izq"></span>
+    <span class="relleno"></span>
+    <span class="der"></span>
+</div>
+<div id="content">
+    <div class="box">
+        <h3 class="title">ADSO</h3>
+        {% block content %}
+            <strong>Bienvenido al proyecto de Django</strong>
+        {% endblock %}
+    </div>
+</div>
+<footer>Master del Framework Django &copy; Nicolas Fierro - {% now 'd/m/Y h:m:s' %}
+</footer>
+</body>
+</html>

@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {# Página de Inicio #}
+    {{ titulo }}
+{% endblock %}
+
+{% block content %}
+    <h1>Inicio</h1>
+    <h1 class="title">{{ title }}</h1>
+    {{ mi_variable }}
+    {% if name %}
+        <p>{{ name }}</p>
+    {% else %}
+        <strong>Nombre no existe</strong>
+    {% endif %}
+    <h3>Lista de marcas de vehiculos:</h3>
+    <ul>
+        {% for marca in marcas %}
+            <li>{{ marca }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Números pares del 0 al 10:</h3>
+    <ul>
+        {% for number in pares %}
+            <li>{{ number }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Nombres: </h3>
+    <ul>
+    {% for nombre in nombres_while %}
+        <li>{{ nombre }}</li>
+    {% endfor %}
+    </ul>
+
+    <h3>Listado de lenguajes de programacion:</h3>
+    <ul>
+    {% for lenguaje in lenguajes %}
+    <li>{{ lenguaje }} {{forloop.last}} </li>
+    {%empty%}
+        <p>No hay lenguajes que mostrar</p>
+    {%endfor%}
+    </ul>
+
+    {% comment %} <ul>
+    {% for lenguaje in lenguajes %}
+    <li>{{ lenguaje }} {{forloop.counter}} </li>
+    {%empty%}
+    <p>No hay lenguajes que mostrar</p>
+    {%endfor%}
+    </ul>
+
+    <ul>
+    {% for lenguaje in lenguajes %}
+    <li>{{ lenguaje }} {{forloop.counter0}} </li>
+    {%empty%}
+    <p>No hay lenguajes que mostrar</p>
+    {%endfor%}
+    </ul>
+
+    <ul>
+    {% for lenguaje in lenguajes %}
+    <li>{{ lenguaje }} {{forloop.revcounter}} </li>
+    {%empty%}
+    <p>No hay lenguajes que mostrar</p>
+    {%endfor%}
+    </ul> {% endcomment %}
+
+    <ul>
+    <h1>Periodo de años</h1>
+    <p>Años pares desde el 2024 hasta el 2050:</p>
+    <>
+        {% for year in añosPares %}
+            <li>{{ year }}</li>
+        {% endfor %}
+    
+    {% include 'fechaActual.html' with saludo='Hola desde la plantilla' %}
+    
+    {% comment %} <p>Años desde el 2024 hasta el 2050:</p> {% endcomment %}
+
+    
+    <h1 class="title">Pagina de mi web</h1>
+    <P>{{"Creado por Nicolas Fierro Bernal"|cut:' '}}</p>
+    {{texto|default:"No hay nada"}}
+    <p>
+        {{lista|first}}
+        {{lista|last}}
+    </p>
+{% endblock %}
