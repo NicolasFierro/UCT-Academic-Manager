@@ -1,36 +1,24 @@
-from django import forms 
-from django.core import validators
+# forms.py
 
-class FormArticulo(forms.Form):
-    title = forms.CharField(
-        label="Titulo",
-        max_length=40,
-        required=False,
-        widget=forms.TextInput(
-            attrs={
-                'placeholder': 'Ingrese el Titulo',
-                'class':'titulo_form_article'
-            }
-        ),
-        validators=[
-            validators.MinLengthValidator(4,'El titulo es demasiado corto'),
-            validators.RegexValidator('^[A-Za-z0-9 ]{5,}$', 'El título está mal digitado', 'invalid_title'),
+from django import forms
+from .models import Estudiante, Profesor, Materia, Carrera
 
-        ]
-    )
-    content = forms.CharField(
-        label="Contenido",
-        max_length=40,
-        required=False,
-        widget= forms.Textarea(
-            attrs= {
-                'placeholder': 'Ingrese el Contenido',
-                'class':'contenido_form_article'
-            }
-        )
-    )
+class EstudianteForm(forms.ModelForm):
+    class Meta:
+        model = Estudiante
+        fields = ['codigo', 'nombre', 'apellido', 'email', 'telefono', 'fecha_nacimiento', 'foto', 'carrera']
 
-    public_options= [(0,'No'),(1,'Si')]
-    public=forms.TypedChoiceField(
-        label='¿publicado?',
-        choices=public_options)
+class ProfesorForm(forms.ModelForm):
+    class Meta:
+        model = Profesor
+        fields = ['codigo', 'nombre', 'apellido', 'email', 'telefono', 'foto', 'fecha_nacimiento', 'materias']
+
+class MateriaForm(forms.ModelForm):
+    class Meta:
+        model = Materia
+        fields = ['codigo', 'nombre', 'descripcion', 'creditos', 'carrera']
+
+class CarreraForm(forms.ModelForm):
+    class Meta:
+        model = Carrera
+        fields = ['codigo', 'nombre', 'duracion']
