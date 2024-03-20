@@ -269,20 +269,22 @@ def login(request):
 
 
 def create_user(request):
+    form = CreateUserForm()  # Initialize the form variable outside the if statement
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
+            phone = form.cleaned_data['phone']
             confirm_password = form.cleaned_data['confirm_password']
             if password == confirm_password:
-                # Crea el usuario si las contraseñas coinciden
+                # Create the user if passwords match
                 user = User.objects.create_user(username=username, password=password)
-                # Aquí podrías agregar la lógica adicional
+                # Here you could add additional logic
             else:
-                # Las contraseñas no coinciden, muestra un mensaje de error
-                # Puedes usar Django messages framework para esto
-                form = CreateUserForm()
+                # Passwords do not match, show an error message
+                # You can use the Django messages framework for this
+                form.add_error('confirm_password', 'Passwords do not match')
     return render(request, 'create_user.html', {'form': form})
 
 def forgot_password(request):

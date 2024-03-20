@@ -5,15 +5,17 @@ Hola Mundo
 {% endblock %}
 
 {% block content %}
-<h2 class="tittle">Titulo de Prueba</h2> 
-{{ block.super }} <!-- Esto renderiza el bloque "content" de la plantilla padre -->
+<h2 class="title">Titulo de Prueba</h2> 
+{{ block.super }}
 
 <div class="card">
-    <img src="{% static 'img/logo_UCT.png' %}" class="card-img-top" alt="Imagen de la noticia">
+    <img src="{% static '/img/Edificio_ingenieria.png' %}"  class="card-img-top" alt="Imagen de la noticia">
     <div class="card-body">
         <h5 class="card-title">Inauguración del Nuevo Edificio de Ingeniería</h5>
-        <p class="card-text">Nos complace anunciar la inauguración del nuevo edificio de Ingeniería, equipado con laboratorios de última generación y espacios de estudio innovadores.</p>
+        <p class="card-text">La Universidad CEICOTOL, comprometida con la excelencia académica y la formación integral de sus estudiantes, se enorgullece en anunciar la inauguración de su nuevo edificio de Ingeniería. Este moderno complejo está equipado con laboratorios de última generación y espacios de estudio innovadores, diseñados para inspirar y potenciar el aprendizaje de nuestros futuros ingenieros. Con esta nueva infraestructura, reafirmamos nuestro compromiso con la educación de calidad y la preparación de profesionales capaces de enfrentar los desafíos del mundo actual y contribuir al avance de la sociedad y la tecnología.</p>
         <a href="#" class="btn btn-primary">Leer más</a>
     </div>
 </div>
 {% endblock %}
+
+
