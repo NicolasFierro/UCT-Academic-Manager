@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
-{% block title %}Iniciar Sesión{% endblock %}
+{% block title %}Crear Usuario{% endblock %}
 
 {% block content %}
-  <h1>Iniciar Sesión</h1>
+  <h1>Crear Usuario</h1>
   <form method="post">
     {% csrf_token %}
     <label for="username">Nombre de Usuario:</label><br>
     <input type="text" id="username" name="username"><br>
     <label for="password">Contraseña:</label><br>
     <input type="password" id="password" name="password"><br>
-    <input type="submit" value="Iniciar Sesión">
+    <input type="submit" value="Crear Usuario">
   </form>
 {% endblock %}

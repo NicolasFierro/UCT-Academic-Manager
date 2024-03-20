@@ -1,54 +1,91 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link rel="icon" href="{% static 'icons/logo.png' %}">
+    <link rel="icon" href="{% static 'icons/logo.png' %}"/>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
-    <title>{% block title %}Inicio{% endblock %}</title>
+    <title>
+        {% block title %}
+            Inicio
+        {% endblock %}
+    </title>
 </head>
 <body>
     <header>
         <div class="logotipo">
-            <img src="{% static 'img/logo.png' %}" alt="">
-            <h1>Universidad Ceicotol Tolima | Universidad de prestigio</h1>
+            <img src="{% static 'img/logo UCT.png' %}" alt="">
+            <h1>Universidad Ceicotol Tolima
+                <br> Aula virtual
+            </h1>
+
         </div>
     </header>
-    <nav>
-        <ul>
-            <li><a href="{% url 'Inicio' %}">Inicio</a></li>
-            <li><a href="{% url 'Saludo' %}">Saludo</a></li>
-            <li><a href="{% url 'QuienesSomos' %}">Quienes Somos</a></li>
-            <li><a href="{% url 'contacto' %}">Contacto</a></li>
-            <li><a href="{% url 'Hola Mundo' %}">Hola Mundo</a></li>
-            <li><a href="{% url 'Pagina' %}">Pagina</a></li>
-            <li><a href="{% url 'Presentacion' %}">Presentacion</a></li>
-            <li><a href="{% url 'Listar' %}">Articulos</a></li>
-            <li><a href="{% url 'Crear' %}">Crear</a></li>
-            <li><a href="{% url 'Create Full Article' %}">Crear full</a></li>
-            <!-- Agrega aquí más enlaces según tus necesidades -->
-        </ul>
-    </nav>
-    <div class="barra">
-        <span class="izq"></span>
-        <span class="barra"></span>
-        <span class="der"></span>
-    </div>
-    
+<nav>
+    <ul>
+        <li>
+            <a href="{% url 'Inicio' %}">Inicio</a>
+        </li>
+        <li>
+            <a href="{% url 'Saludo' %}">Carreras</a>
+        </li>
+        <li>
+            <a href="{% url 'QuienesSomos' %}">Quienes Somos</a>
+        </li>
+        <li>
+            <a href="{% url 'contacto' %}">Contacto</a>
+        </li>
+
+        <li> 
+            <a href="{% url 'Hola Mundo' %}">Hola Mundo</a>
+        </li>
+
+        <li>
+            <a href="{% url 'Pagina' %}">Pagina</a>
+        </li> 
+
+
+        <li>
+            <a href="{% url 'Listar' %}">Articulos</a>
+        </li>
+
+        <li>
+            <a href="{% url 'Crear' %}">Crear</a>
+        </li>
+
+        <li>
+            <a href="{% url 'Create Full Article' %}">Crear full</a>
+        </li>
+
+        <li>
+            <a href="{% url 'login'%}">Login</a>
+        </li>
+        
+        <li>
+            <a href="{% url 'create_user'%}">Crear usuario</a>
+        </li>
+
+        <li>
+            <a href="{% url 'forgot_password'%}">contraseña</a>
+        </li>
+    </ul>
+</nav>
+<div class="barra">
+    <span class="izq"></span>
+    <span class="barra"></span>
+    <span class="der"></span>
+</div>
     <div id="content">
         <div class="box">
-            {% block content %}
-                <h2>Bienvenido a nuestra página</h2>
-                <!-- Agrega aquí el contenido específico de la página de inicio -->
-                <!-- Por ejemplo, podrías incluir secciones para el login, contacto, etc. -->
-            {% endblock %}
+        {% block content %}
+        <!-- <h2 class="tittle">Titulo de Prueba</h2>  -->
+            <strong>Bienvenido a nuestra pagina </strong>
+        {% endblock %}
         </div>
     </div>
-
-    <footer>Universidad Ceicotol Tolima &copy; Universidad de prestigio - {% now 'd/m/Y h:m' %}</footer>
+<footer>Universidad Ceicotol Tolima &copy; Enseñando un mejor futuro -{%now 'd/m/Y h:m'%}</footer>
 </body>
 </html>

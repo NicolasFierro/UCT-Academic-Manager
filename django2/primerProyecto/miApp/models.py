@@ -1,54 +1,31 @@
 from django.db import models
 
-class Carrera(models.Model):
-    codigo = models.CharField(max_length=20)
-    nombre = models.CharField(max_length=100)
-    duracion = models.IntegerField()
+# Create your models here.
+class Article(models.Model):
+    title = models.CharField(max_length=150)
+    image=models.ImageField(default="null")
+    content = models.TextField()
+    public = models.BooleanField()
+    create_date = models.DateTimeField(auto_now_add =True)
+    update_date = models.DateField(auto_now =True)
+    upload_to="articles"
 
-    def __str__(self):
-        return self.nombre
+class Category(models.Model):
+    name = models.CharField(max_length=110)
+    description = models.CharField(max_length=250)
+    create_date = models.DateField()
 
-class Materia(models.Model):
-    codigo = models.CharField(max_length=20)
-    nombre = models.CharField(max_length=100)
-    descripcion = models.TextField()
-    creditos = models.IntegerField()
-    fecha_creacion = models.DateTimeField(auto_now_add=True)
-    fecha_actualizacion = models.DateTimeField(auto_now=True)
-    carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.nombre
-
-class Estudiante(models.Model):
-    codigo = models.CharField(max_length=20)
-    nombre = models.CharField(max_length=100)
-    apellido = models.CharField(max_length=100)
-    email = models.EmailField()
-    telefono = models.CharField(max_length=20)
-    fecha_nacimiento = models.DateField()
-    foto = models.ImageField(upload_to='estudiantes/', null=True, blank=True)
-    fecha_creacion = models.DateTimeField(auto_now_add=True)
-    fecha_actualizacion = models.DateTimeField(auto_now=True)
-    carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f"{self.nombre} {self.apellido}"
-
-class Profesor(models.Model):
-    codigo = models.CharField(max_length=20)
-    nombre = models.CharField(max_length=100)
-    apellido = models.CharField(max_length=100)
-    email = models.EmailField()
-    telefono = models.CharField(max_length=20)
-    foto = models.ImageField(upload_to='profesores/', null=True, blank=True)
-    fecha_nacimiento = models.DateField()
-    fecha_creacion = models.DateTimeField(auto_now_add=True)
-    fecha_actualizacion = models.DateTimeField(auto_now=True)
-    materias = models.ManyToManyField(Materia)
-
-    def __str__(self):
-        return f"{self.nombre} {self.apellido}"
-
+class Meta:
+    #db_table=""
+    verbose_name="Articulo"
+    verbose_name_plural="Articulos"
+    #Ordenamos de forma ascendente los articulos
+    ordering=['id']
+    def _str_(self):
+        if self.public:
+            publico="(Publico)"
+        else:
+            publico="(Privado)"
+        return f"{self.id}-{self.title} : {publico}"
 
 
