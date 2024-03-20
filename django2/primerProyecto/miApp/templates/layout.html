@@ -55,18 +55,18 @@
             <a href="{% url 'Create Full Article' %}">Crear full</a>
         </li> {% endcomment %}
 
-        <li>
-            <a href="{% url 'login'%}">Inicio de Sesion</a>
-        </li>
+        <ul class="navbar-nav align-right">
+            <li>
+                <a href="{% url 'login'%}">Inicio de Sesión</a>
+            </li>
+            <li>
+                <a href="{% url 'create_user'%}">Crear usuario</a>
+            </li>
+            <li>
+                <a href="{% url 'forgot_password'%}">Contraseña</a>
+            </li>
+        </ul>
         
-        <li>
-            <a href="{% url 'create_user'%}">Crear usuario</a>
-        </li>
-
-        <li>
-            <a href="{% url 'forgot_password'%}">Contraseña</a>
-        </li>
-    </ul>
 </nav>
 <div class="barra">
     <span class="izq"></span>
@@ -77,7 +77,7 @@
         <div class="box">
         {% block content %}
         <!-- <h2 class="tittle">Titulo de Prueba</h2>  -->
-            <strong>Bienvenido a nuestra pagina </strong>
+            <strong> </strong>
         {% endblock %}
         </div>
     </div>

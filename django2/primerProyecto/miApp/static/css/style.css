@@ -25,7 +25,7 @@ header{
 .logotipo h1{
     display: block;
     float: left;
-    margin-top: 10px;
+    margin-top: 26px;
     margin-left: 30px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -36,9 +36,9 @@ header{
 }
 .logotipo img{
     display: block;
-    width: 100px;
+    width: 120px;
     float: left;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .logotipo{
@@ -127,16 +127,11 @@ nav ul li a:hover{
     width: 95%;
     min-height: 930px;
     padding: 20px;
-    border: 1px solid #dddd;
+    border: 1px solid #0f5971;
     margin: 0 auto;
 }
-.title{
-    color: #444;
-    letter-spacing: 1px;
-    font-size: 30px;
-    margin-bottom: 10px;
-    margin-top: 5px;
-}
+
+
 footer{
     width: 1250px;
     background-color: #0f5971;
@@ -165,8 +160,8 @@ footer{
 
 .lista a{
     text-decoration: none;
-    background-color: #2ba977;
-    color: white;
+    background-color: #000000;
+    color: #0f5971;
     padding: 5px;
     font-weight: 700;
     border: 1px solid #444;
@@ -267,3 +262,24 @@ article-item .image{
 article-item .image .img{
     width: 200px;
 }
+
+/* Noticias */
+.title{
+    color: #b7812a;
+    letter-spacing: 1px;
+    font-size: 35px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.card-body
+{
+    font-family: Arial, sans-serif; /* Tipo de fuente */
+    font-size: 16px; /* Tamaño de fuente */
+    line-height: 1.6; /* Altura de línea */
+    color: #333; /* Color de texto */
+    font-weight: bold; /* Texto en negrita */ 
+    color: #000000; /* Color de enlaces */ 
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+    text-align: justify
+}
+
