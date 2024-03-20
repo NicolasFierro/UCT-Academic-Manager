@@ -1,5 +1,7 @@
 {% extends 'layout.html' %}
 
+{% load static %}
+
 {% block title %}
     Universidad CEICOTOL
 {% endblock %}
@@ -22,17 +24,16 @@
         <div class="col-md-6">
             <h2>Noticias y Eventos</h2>
             <div class="card">
-                <img src="{% static 'img/' %}" class="card-img-top" alt="Imagen de la noticia">
+                <img src="{% static '/img/Edificio_de_ingenieria.png' %}" class="card-img-top" alt="Imagen de la noticia">
                 <div class="card-body">
                     <h5 class="card-title">Inauguración del Nuevo Edificio de Ingeniería</h5>
                     <p class="card-text">Nos complace anunciar la inauguración del nuevo edificio de Ingeniería, equipado con laboratorios de última generación y espacios de estudio innovadores.</p>
-                    <a href="#" class="btn btn-primary">Leer más</a>
+                    <a href="{% url 'Hola Mundo' %}" class="btn btn-primary">Leer más</a>
                 </div>
             </div>
             <!-- Agrega más noticias o eventos destacados según sea necesario -->
         </div>
-        
-        
+    </div>
 
     <div class="row">
         <div class="col-md-12">
