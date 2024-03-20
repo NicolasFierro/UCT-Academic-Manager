@@ -2,13 +2,13 @@ from django.shortcuts import render, HttpResponse, redirect
 from miApp.models import Article
 from django.db import connection
 from django.db.models import Q
-from miApp.forms import FormArticulo
+from miApp.forms import FormArticulo,LoginForm,CreateUserForm,ForgotPasswordForm
 from django.contrib import messages
 from django.shortcuts import render
 from django.contrib.auth.models import User
 # Create your views here.
 layout="""
-        <h1>Sitio Web con Django | Sebastian Tovar</h1>
+        <h1>S</h1>
         </hr>
         <ul>
             <li>
@@ -253,6 +253,7 @@ def create_full_articulos(request):
 
 def login(request):
     if request.method == 'POST':
+        # Aquí se procesa el formulario enviado por el método POST
         form = LoginForm(request.POST)
         if form.is_valid():
             # Procesa los datos del formulario
@@ -261,8 +262,11 @@ def login(request):
             # Realiza la autenticación, redirección, etc.
             # Aquí deberías agregar tu lógica de autenticación
     else:
+        # Aquí se instancia el formulario vacío para mostrarlo en la página
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
+
+
 
 def create_user(request):
     if request.method == 'POST':
@@ -278,7 +282,6 @@ def create_user(request):
             else:
                 # Las contraseñas no coinciden, muestra un mensaje de error
                 # Puedes usar Django messages framework para esto
-            else:
                 form = CreateUserForm()
     return render(request, 'create_user.html', {'form': form})
 

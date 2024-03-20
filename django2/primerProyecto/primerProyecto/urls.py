@@ -45,9 +45,9 @@ urlpatterns = [
     path('create_articulo/',miApp.views.create_articulo, name='Crear'),
     path('create_articulo/',miApp.views.save_articulo, name='Guardar'),
     path('create-full-articulos/',miApp.views.create_full_articulos, name='Create Full Article'),
-    path('login/', views.login, name='login'),
-    path('create_user/', views.create_user, name='create_user'),
-    path('forgot_password/', views.forgot_password, name='forgot_password'),
+    path('login/', miApp.views.login, name='login'),
+    path('create_user/', miApp.views.create_user, name='create_user'),
+    path('forgot_password/', miApp.views.forgot_password, name='forgot_password'),
 ]
 if settings.DEBUG:
     from django.conf.urls.static import static

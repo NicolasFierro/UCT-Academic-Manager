@@ -39,16 +39,7 @@
             <a href="{% url 'contacto' %}">Contacto</a>
         </li>
 
-        <li> 
-            <a href="{% url 'Hola Mundo' %}">Hola Mundo</a>
-        </li>
-
-        <li>
-            <a href="{% url 'Pagina' %}">Pagina</a>
-        </li> 
-
-
-        <li>
+        {% comment %} <li>
             <a href="{% url 'Listar' %}">Articulos</a>
         </li>
 
@@ -58,7 +49,7 @@
 
         <li>
             <a href="{% url 'Create Full Article' %}">Crear full</a>
-        </li>
+        </li> {% endcomment %}
 
         <li>
             <a href="{% url 'login'%}">Login</a>
@@ -69,7 +60,7 @@
         </li>
 
         <li>
-            <a href="{% url 'forgot_password'%}">contraseña</a>
+            <a href="{% url 'forgot_password'%}">Contraseña</a>
         </li>
     </ul>
 </nav>
