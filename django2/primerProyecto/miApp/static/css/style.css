@@ -283,3 +283,112 @@ article-item .image .img{
     text-align: justify
 }
 
+/* Estilos para el formulario */
+form {
+    width: 50%;
+    margin: 0 auto; /* Centrar el formulario horizontalmente */
+}
+
+/* Estilos para las etiquetas y los campos de entrada */
+label {
+    display: block; /* Mostrar las etiquetas en una línea separada */
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%; /* Ajustar el ancho al 100% del contenedor */
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    background-color: #0f5971; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    border: none; /* Eliminar el borde del botón */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+}
+
+/* Estilos para la respuesta de SweetAlert */
+.swal-overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Color de fondo del overlay */
+}
+.swal-modal {
+    background-color: #054992; /* Color de fondo del modal */
+    border-radius: 5px; /* Bordes redondeados del modal */
+    width: 295px; /* Ancho del modal */
+}
+.swal-title {
+    font-size: 24px; /* Tamaño de fuente del título */
+    margin-bottom: 20px; /* Margen inferior del título */
+}
+.swal-text {
+    font-size: 35px; /* Tamaño de fuente del texto */
+    margin-bottom: 35px; /* Margen inferior del texto */
+}
+.swal-button {
+    background-color: #0f5971; /* Color de fondo de los botones */
+    color: #fff; /* Color del texto de los botones */
+    padding: 10px 20px; /* Espaciado interno de los botones */
+    border: none; /* Eliminar el borde de los botones */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre los botones */
+}
+
+/*inicio de sesion */
+
+form {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="phone"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+h5{
+    text-align: center;
+}
+
+img{
+    display: block;
+    margin: auto;
+    width: 70%;
+}

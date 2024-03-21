@@ -2,7 +2,8 @@
 {% block title %}Crear Usuario{% endblock %}
 
 {% block content %}
-  <h1>Crear Usuario</h1>
+  ><h1>Crear Usuario</h1>
+  <br>
   <form method="post">
     {% csrf_token %}
     <label for="username">Nombre de Usuario:</label><br>
@@ -12,7 +13,8 @@
     <label for="password">Contraseña:</label><br>
     <input type="password" id="password" name="password"><br>
     <label for="phone">Telefono:</label>
-    <input type="phone" id="phone" name="phone"><br>
+    <input type="phone" id="phone" name="phone">
+    <br>
     <input type="submit" value="Crear Usuario">
   </form>
 {% endblock %}

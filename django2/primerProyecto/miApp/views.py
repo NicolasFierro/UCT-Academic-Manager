@@ -6,6 +6,10 @@ from miApp.forms import FormArticulo,LoginForm,CreateUserForm,ForgotPasswordForm
 from django.contrib import messages
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.conf import settings
+from django.contrib import messages
 # Create your views here.
 layout="""
         <h1>S</h1>
@@ -278,21 +282,46 @@ def create_user(request):
             phone = form.cleaned_data['phone']
             confirm_password = form.cleaned_data['confirm_password']
             if password == confirm_password:
-                # Create the user if passwords match
+                # Tu usuario sera creado si todos los campos son llenados y tus contraseñas coinciden
                 user = User.objects.create_user(username=username, password=password)
                 # Here you could add additional logic
             else:
-                # Passwords do not match, show an error message
-                # You can use the Django messages framework for this
-                form.add_error('confirm_password', 'Passwords do not match')
+                # Si tu contraseña no coincide te saldra un mensaje de error
+                form.add_error('confirm_password', 'Tus contraseñas no coincide')
     return render(request, 'create_user.html', {'form': form})
 
 def forgot_password(request):
     if request.method == 'POST':
         form = ForgotPasswordForm(request.POST)
         if form.is_valid():
-            # Aquí podrías enviar un correo electrónico para restablecer la contraseña
+            # Esta opcion envia un correo electrónico para restablecer la contraseña
             pass
     else:
         form = ForgotPasswordForm()
     return render(request, 'forgot_password.html', {'form': form})
+
+def contact(request):
+    if request.method == 'POST':
+        name=request.POST['name']
+        email=request.POST['email']
+        subject=request.POST['subject']
+        message=request.POST['message']
+
+        template = render_to_string('email_template.html',{
+            'name':name,
+            'email':email,
+            'message':message
+        })
+
+        email = EmailMessage (
+            subject,
+            template,
+            settings.EMAIL_HOST_USER,
+            ['Nicolasfierrobernal@gmail.com']
+        )
+
+        email.fail.silently = False
+        email.send()
+
+        messages.success(request, 'Se ha enviado a tu correo')
+        return redirect('index')
