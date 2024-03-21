@@ -49,8 +49,8 @@ urlpatterns = [
     path('create_user/', miApp.views.create_user, name='create_user'),
     path('forgot_password/', miApp.views.forgot_password, name='forgot_password'),
     path('login/forgot_password/', miApp.views.forgot_password, name='forgot_password'),
-    path('contact/', miApp.views.contact, name='contact'),
 ]
+
 if settings.DEBUG:
     from django.conf.urls.static import static
     urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
